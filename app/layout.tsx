@@ -3,6 +3,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Saurabh Ganjale | Software & Flutter Developer",
+  icons: {
+    icon: "/my_img.png",
+    shortcut: "/my_img.png",
+    apple: "/my_img.png",
+  },
   description:
     "Portfolio of Saurabh Ganjale, a Software & Flutter Developer specializing in mobile applications, web platforms, admin dashboards and custom business software.",
   keywords: [
