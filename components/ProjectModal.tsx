@@ -707,11 +707,20 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
             <div className="p-5 space-y-5">
               {/* Meta */}
               <div className="grid grid-cols-3 gap-2.5">
-                {[
-                  { icon: User,      label: "Role",   value: project.role },
-                  { icon: Tag,       label: "Status", value: project.status },
-                  { icon: Briefcase, label: "Type",   value: project.clientProject ? "Client Project" : "Personal" },
-                ].map(({ icon: Icon, label, value }) => (
+  {[
+    { icon: User, label: "Role", value: project.role },
+    { icon: Tag, label: "Status", value: project.status },
+    {
+      icon: Briefcase,
+      label: "Type",
+      value:
+        project.category === "Mobile Apps"
+          ? "Mobile Application"
+          : project.category === "Web Applications"
+            ? "Web Application"
+            : "Business Application",
+    },
+  ].map(({ icon: Icon, label, value }) => (
                   <div key={label} className="p-3 rounded-lg bg-card-elevated border border-border-color">
                     <div className="flex items-center gap-1.5 mb-1">
                       <Icon size={11} className="text-text-muted" />

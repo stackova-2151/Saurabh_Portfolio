@@ -119,13 +119,6 @@ function MobileImageArea({ project }: { project: Project }) {
           {project.category}
         </span>
       </div>
-      {project.clientProject && (
-        <div className="absolute top-3 right-3 z-20">
-          <span className="px-2 py-1 text-[11px] font-medium bg-accent/15 border border-accent/25 text-accent rounded-md leading-none">
-            Client
-          </span>
-        </div>
-      )}
     </div>
   );
 }
