@@ -14,70 +14,61 @@ const categoryColors: Record<string, string> = {
   "Business Software": "text-purple-400",
 };
 
-// ── Mobile App image area ─────────────────────────────────────────────────────
+// ── Mobile App image area — "Spotlight stage" ─────────────────────────────────
 
 function MobileImageArea({ project }: { project: Project }) {
   const src = project.images.mobile[0];
   return (
     <div
-      className="relative h-48 shrink-0 overflow-hidden flex items-center justify-center"
+      className="relative h-56 shrink-0 overflow-hidden flex items-center justify-center"
       style={{
+        // Light beam falling from the top edge onto a dark base
         background:
-          "radial-gradient(ellipse 70% 80% at 50% 60%, rgba(59,130,246,0.10) 0%, transparent 70%), linear-gradient(160deg, #0d1117 0%, #0a0f1e 100%)",
+          "radial-gradient(ellipse 65% 75% at 50% 0%, rgba(147,197,253,0.4) 0%, transparent 72%), #0a0f1e",
       }}
     >
-      {/* Dot grid */}
+      {/* Floor glow under the phone — reacts when the card is hovered */}
       <div
         aria-hidden="true"
-        className="absolute inset-0 opacity-[0.055]"
+        className="absolute bottom-1 left-1/2 -translate-x-1/2 w-[130px] h-[18px] rounded-full pointer-events-none transition-all duration-300 group-hover:w-[100px] group-hover:opacity-70"
         style={{
-          backgroundImage: "radial-gradient(circle, #3B82F6 1px, transparent 1px)",
-          backgroundSize: "18px 18px",
+          background:
+            "radial-gradient(ellipse, rgba(96,165,250,0.7) 0%, transparent 70%)",
         }}
       />
 
-      {/* Ambient glow disc behind phone */}
-      <div
-        aria-hidden="true"
-        className="absolute w-28 h-28 rounded-full pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, rgba(59,130,246,0.18) 0%, transparent 70%)",
-          filter: "blur(12px)",
-        }}
-      />
-
-      {/* Phone frame — animates on card hover via group */}
+      {/* Phone frame — lifts on hover */}
       <motion.div
-        className="relative z-10"
-        style={{ width: 112, height: 220 }}
+        className="relative z-10 mb-2"
+        style={{ width: 100, height: 196 }}
         whileHover={{ y: -5, scale: 1.04 }}
         transition={{ duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] }}
       >
         {/* Outer device shell */}
         <div
-          className="absolute inset-0 rounded-[22px] border border-white/12"
+          className="absolute inset-0 rounded-[22px] border border-white/15"
           style={{
             background: "linear-gradient(160deg, #1c2333 0%, #111827 100%)",
             boxShadow:
-              "0 8px 32px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.08)",
+              "0 10px 30px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06), inset 0 1px 0 rgba(255,255,255,0.08)",
           }}
         />
 
         {/* Side buttons — left */}
         <div
           aria-hidden="true"
-          className="absolute -left-[3px] top-14 w-[3px] h-6 rounded-l-sm"
+          className="absolute -left-[3px] top-12 w-[3px] h-5 rounded-l-sm"
           style={{ background: "#1e2a3a" }}
         />
         <div
           aria-hidden="true"
-          className="absolute -left-[3px] top-[88px] w-[3px] h-6 rounded-l-sm"
+          className="absolute -left-[3px] top-[78px] w-[3px] h-5 rounded-l-sm"
           style={{ background: "#1e2a3a" }}
         />
         {/* Side button — right (power) */}
         <div
           aria-hidden="true"
-          className="absolute -right-[3px] top-16 w-[3px] h-8 rounded-r-sm"
+          className="absolute -right-[3px] top-14 w-[3px] h-7 rounded-r-sm"
           style={{ background: "#1e2a3a" }}
         />
 
@@ -86,7 +77,7 @@ function MobileImageArea({ project }: { project: Project }) {
           {/* Notch / dynamic island */}
           <div
             aria-hidden="true"
-            className="absolute top-1.5 left-1/2 -translate-x-1/2 z-10 w-14 h-3 rounded-full"
+            className="absolute top-1.5 left-1/2 -translate-x-1/2 z-10 w-12 h-3 rounded-full"
             style={{ background: "#0d1117" }}
           />
 
